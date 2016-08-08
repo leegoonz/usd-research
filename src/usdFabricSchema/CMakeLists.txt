@@ -15,10 +15,19 @@ pxr_plugin(${FE_PACKAGE}
         ${USD_DEPS_VFX}/include
 
     PUBLIC_CLASSES
-        simple
+        fabricSimplePrim
+        tokens
 
     RESOURCE_FILES
         generatedSchema.usda
         plugInfo.json
+
+    PYTHON_FILES
+        __init__.py
+
+    PYMODULE_CPPFILES
+        module.cpp
+        wrapTokens.cpp
+        wrapFabricSimplePrim.cpp
 )
    

@@ -21,8 +21,8 @@
 // KIND, either express or implied. See the Apache License for the specific
 // language governing permissions and limitations under the Apache License.
 //
-#ifndef USDFABRICSCHEMA_TOKENS_H
-#define USDFABRICSCHEMA_TOKENS_H
+#ifndef USD_TOKENS_H
+#define USD_TOKENS_H
 
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 // 
@@ -36,12 +36,12 @@
 /// \file ./tokens.h
 
 /// \hideinitializer
-#define USDFABRICSCHEMA_TOKENS \
+#define USD_TOKENS \
     (intAttr) \
     (target)
 
-/// \anchor usdFabricSchemaTokens
-/// \brief <b>usdFabricSchemaTokens</b> provides static, efficient TfToken's for
+/// \anchor UsdTokens
+/// \brief <b>UsdTokens</b> provides static, efficient TfToken's for
 /// use in all public USD API
 ///
 /// These tokens are auto-generated from the module's schema, representing
@@ -50,17 +50,17 @@
 /// manner, and allow the compiler to verify that you spelled the name
 /// correctly.
 ///
-/// usdFabricSchemaTokens also contains all of the \em allowedTokens values declared
+/// UsdTokens also contains all of the \em allowedTokens values declared
 /// for schema builtin attributes of 'token' scene description type.
-/// Use usdFabricSchemaTokens like so:
+/// Use UsdTokens like so:
 ///
 /// \code
-///     gprim.GetVisibilityAttr().Set(usdFabricSchemaTokens->invisible);
+///     gprim.GetVisibilityAttr().Set(UsdTokens->invisible);
 /// \endcode
 ///
 /// The tokens are:
-/// \li <b>intAttr</b> - usdFabricSchemaSimple
-/// \li <b>target</b> - usdFabricSchemaSimple
-TF_DECLARE_PUBLIC_TOKENS(usdFabricSchemaTokens, USDFABRICSCHEMA_TOKENS);
+/// \li <b>intAttr</b> - UsdFabricSimplePrim
+/// \li <b>target</b> - UsdFabricSimplePrim
+TF_DECLARE_PUBLIC_TOKENS(UsdTokens, USD_TOKENS);
 
 #endif

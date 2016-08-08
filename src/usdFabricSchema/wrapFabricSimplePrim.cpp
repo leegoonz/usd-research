@@ -21,7 +21,7 @@
 // KIND, either express or implied. See the Apache License for the specific
 // language governing permissions and limitations under the Apache License.
 //
-#include "./simple.h"
+#include "./fabricSimplePrim.h"
 
 #include "pxr/usd/usd/schemaBase.h"
 #include "pxr/usd/usd/conversions.h"
@@ -47,18 +47,18 @@ WRAP_CUSTOM;
 
         
 static UsdAttribute
-_CreateIntAttrAttr(usdFabricSchemaSimple &self,
+_CreateIntAttrAttr(UsdFabricSimplePrim &self,
                                       object defaultVal, bool writeSparsely) {
     return self.CreateIntAttrAttr(
         UsdPythonToSdfType(defaultVal, SdfValueTypeNames->Int), writeSparsely);
 }
 
-void wrapusdFabricSchemaSimple()
+void wrapUsdFabricSimplePrim()
 {
-    typedef usdFabricSchemaSimple This;
+    typedef UsdFabricSimplePrim This;
 
     class_<This, bases<UsdTyped> >
-        cls("Simple");
+        cls("FabricSimplePrim");
 
     cls
         .def(init<UsdPrim>(arg("prim")))

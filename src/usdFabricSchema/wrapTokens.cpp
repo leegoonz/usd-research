@@ -26,8 +26,8 @@
 
 #include "pxr/base/tf/pyStaticTokens.h"
 
-void wrapusdFabricSchemaTokens()
+void wrapUsdTokens()
 {
-    TF_PY_WRAP_PUBLIC_TOKENS("Tokens", usdFabricSchemaTokens,
-                             USDFABRICSCHEMA_TOKENS);
+    TF_PY_WRAP_PUBLIC_TOKENS("Tokens", UsdTokens,
+                             USD_TOKENS);
 }

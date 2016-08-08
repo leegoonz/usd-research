@@ -32,9 +32,9 @@ set(PYSIDERCC4BINARY ${USD_DEPS}/bin/pyside-rcc)
 set(PYSIDEUIC4BINARY ${USD_DEPS}/bin/pyside-uic)
 set(FLEX_EXECUTABLE ${USD_DEPS}/bin/flex)
 
-set(CMAKE_MODULE_PATH ${USD_ROOT}/cmake/defaults
-                      ${USD_ROOT}/cmake/modules
-                      ${USD_ROOT}/cmake/macros)
+set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake/defaults
+                      ${PROJECT_SOURCE_DIR}/cmake/modules
+                      ${PROJECT_SOURCE_DIR}/cmake/macros)
 
 include(Options)
 include(ProjectDefaults)
@@ -50,6 +50,7 @@ set(CMAKE_CXX_FLAGS ${_PXR_CXX_FLAGS})
 
 link_directories(${USD_DEPS_PIXAR}/lib)
 
-set(FE_PREFIX examples)
+set(PXR_PREFIX fabric)
+set(PXR_INSTALL_SUBDIR ${USD_DEPS_PIXAR}/share/usd/fabric)
 
 add_subdirectory(usdFabricSchema)

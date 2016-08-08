@@ -21,8 +21,8 @@
 // KIND, either express or implied. See the Apache License for the specific
 // language governing permissions and limitations under the Apache License.
 //
-#ifndef USDFABRICSCHEMA_GENERATED_SIMPLE_H
-#define USDFABRICSCHEMA_GENERATED_SIMPLE_H
+#ifndef USDFABRICSCHEMA_GENERATED_FABRICSIMPLEPRIM_H
+#define USDFABRICSCHEMA_GENERATED_FABRICSIMPLEPRIM_H
 
 #include "pxr/usd/usd/typed.h"
 #include "pxr/usd/usd/prim.h"
@@ -41,13 +41,13 @@
 class SdfAssetPath;
 
 // -------------------------------------------------------------------------- //
-// SIMPLEPRIM                                                                 //
+// FABRICSIMPLEPRIM                                                           //
 // -------------------------------------------------------------------------- //
 
 /// An example of an untyped schema prim. Note that it does not 
 /// specify a typeName
 ///
-class usdFabricSchemaSimple : public UsdTyped
+class UsdFabricSimplePrim : public UsdTyped
 {
 public:
     /// Compile-time constant indicating whether or not this class corresponds
@@ -56,25 +56,25 @@ public:
     /// a non-empty typeName.
     static const bool IsConcrete = false;
 
-    /// Construct a usdFabricSchemaSimple on UsdPrim \p prim .
-    /// Equivalent to usdFabricSchemaSimple::Get(prim.GetStage(), prim.GetPath())
+    /// Construct a UsdFabricSimplePrim on UsdPrim \p prim .
+    /// Equivalent to UsdFabricSimplePrim::Get(prim.GetStage(), prim.GetPath())
     /// for a \em valid \p prim, but will not immediately throw an error for
     /// an invalid \p prim
-    explicit usdFabricSchemaSimple(const UsdPrim& prim=UsdPrim())
+    explicit UsdFabricSimplePrim(const UsdPrim& prim=UsdPrim())
         : UsdTyped(prim)
     {
     }
 
-    /// Construct a usdFabricSchemaSimple on the prim held by \p schemaObj .
-    /// Should be preferred over usdFabricSchemaSimple(schemaObj.GetPrim()),
+    /// Construct a UsdFabricSimplePrim on the prim held by \p schemaObj .
+    /// Should be preferred over UsdFabricSimplePrim(schemaObj.GetPrim()),
     /// as it preserves SchemaBase state.
-    explicit usdFabricSchemaSimple(const UsdSchemaBase& schemaObj)
+    explicit UsdFabricSimplePrim(const UsdSchemaBase& schemaObj)
         : UsdTyped(schemaObj)
     {
     }
 
     /// Destructor.
-    virtual ~usdFabricSchemaSimple();
+    virtual ~UsdFabricSimplePrim();
 
     /// Return a vector of names of all pre-declared attributes for this schema
     /// class and all its ancestor classes.  Does not include attributes that
@@ -82,16 +82,16 @@ public:
     static const TfTokenVector &
     GetSchemaAttributeNames(bool includeInherited=true);
 
-    /// \brief Return a usdFabricSchemaSimple holding the prim adhering to this
+    /// \brief Return a UsdFabricSimplePrim holding the prim adhering to this
     /// schema at \p path on \p stage.  If no prim exists at \p path on
     /// \p stage, or if the prim at that path does not adhere to this schema,
     /// return an invalid schema object.  This is shorthand for the following:
     ///
     /// \code
-    /// usdFabricSchemaSimple(stage->GetPrimAtPath(path));
+    /// UsdFabricSimplePrim(stage->GetPrimAtPath(path));
     /// \endcode
     ///
-    static usdFabricSchemaSimple
+    static UsdFabricSimplePrim
     Get(const UsdStagePtr &stage, const SdfPath &path);
 
 

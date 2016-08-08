@@ -4,5 +4,6 @@
 
 TF_WRAP_MODULE
 {
-    TF_WRAP(UsdFabricSchemaSimple);
+    TF_WRAP(UsdFabricSimplePrim);
+	TF_WRAP(UsdTokens);
 }

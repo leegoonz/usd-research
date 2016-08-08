@@ -12,23 +12,17 @@ over "GLOBAL" (
     customData = {
         string libraryName       = "usdFabricSchema"
         string libraryPath       = "."
-        string libraryPrefix     = "usdFabricSchema"
+        string libraryPrefix     = "Usd"
     }
 ) {
 }
 
-class "SimplePrim" (
+class "FabricSimplePrim" (
     doc = """An example of an untyped schema prim. Note that it does not 
     specify a typeName"""
     # IsA schemas should derive from </Typed>, which is defined in the sublayer
     # usd/lib/usd/schema.usda.
     inherits = </Typed>
-    customData = {
-        # Provide a different class name for the C++ and python schema classes.
-        # This will be prefixed with libraryPrefix.
-        # In this case, the class name becomes UsdFabricSchemaSimple.
-        string className = "Simple"
-        }
     )  
 {
     int intAttr = 0 (

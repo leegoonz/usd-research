@@ -23,4 +23,4 @@
 //
 #include "./tokens.h"
 
-TF_DEFINE_PUBLIC_TOKENS(usdFabricSchemaTokens, USDFABRICSCHEMA_TOKENS);
+TF_DEFINE_PUBLIC_TOKENS(UsdTokens, USD_TOKENS);

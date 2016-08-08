@@ -3,7 +3,7 @@
     "WARNING: THIS FILE IS GENERATED.  DO NOT EDIT."
 )
 
-class "SimplePrim" (
+class "FabricSimplePrim" (
     doc = """An example of an untyped schema prim. Note that it does not 
     specify a typeName"""
 )

@@ -21,7 +21,7 @@
 // KIND, either express or implied. See the Apache License for the specific
 // language governing permissions and limitations under the Apache License.
 //
-#include "./simple.h"
+#include "./fabricSimplePrim.h"
 #include "pxr/usd/usd/schemaRegistry.h"
 #include "pxr/usd/usd/typed.h"
 
@@ -31,39 +31,39 @@
 // Register the schema with the TfType system.
 TF_REGISTRY_FUNCTION(TfType)
 {
-    TfType::Define<usdFabricSchemaSimple,
+    TfType::Define<UsdFabricSimplePrim,
         TfType::Bases< UsdTyped > >();
     
 }
 
 /* virtual */
-usdFabricSchemaSimple::~usdFabricSchemaSimple()
+UsdFabricSimplePrim::~UsdFabricSimplePrim()
 {
 }
 
 /* static */
-usdFabricSchemaSimple
-usdFabricSchemaSimple::Get(const UsdStagePtr &stage, const SdfPath &path)
+UsdFabricSimplePrim
+UsdFabricSimplePrim::Get(const UsdStagePtr &stage, const SdfPath &path)
 {
     if (not stage) {
         TF_CODING_ERROR("Invalid stage");
-        return usdFabricSchemaSimple();
+        return UsdFabricSimplePrim();
     }
-    return usdFabricSchemaSimple(stage->GetPrimAtPath(path));
+    return UsdFabricSimplePrim(stage->GetPrimAtPath(path));
 }
 
 
 /* static */
 const TfType &
-usdFabricSchemaSimple::_GetStaticTfType()
+UsdFabricSimplePrim::_GetStaticTfType()
 {
-    static TfType tfType = TfType::Find<usdFabricSchemaSimple>();
+    static TfType tfType = TfType::Find<UsdFabricSimplePrim>();
     return tfType;
 }
 
 /* static */
 bool 
-usdFabricSchemaSimple::_IsTypedSchema()
+UsdFabricSimplePrim::_IsTypedSchema()
 {
     static bool isTyped = _GetStaticTfType().IsA<UsdTyped>();
     return isTyped;
@@ -71,21 +71,21 @@ usdFabricSchemaSimple::_IsTypedSchema()
 
 /* virtual */
 const TfType &
-usdFabricSchemaSimple::_GetTfType() const
+UsdFabricSimplePrim::_GetTfType() const
 {
     return _GetStaticTfType();
 }
 
 UsdAttribute
-usdFabricSchemaSimple::GetIntAttrAttr() const
+UsdFabricSimplePrim::GetIntAttrAttr() const
 {
-    return GetPrim().GetAttribute(usdFabricSchemaTokens->intAttr);
+    return GetPrim().GetAttribute(UsdTokens->intAttr);
 }
 
 UsdAttribute
-usdFabricSchemaSimple::CreateIntAttrAttr(VtValue const &defaultValue, bool writeSparsely) const
+UsdFabricSimplePrim::CreateIntAttrAttr(VtValue const &defaultValue, bool writeSparsely) const
 {
-    return UsdSchemaBase::_CreateAttr(usdFabricSchemaTokens->intAttr,
+    return UsdSchemaBase::_CreateAttr(UsdTokens->intAttr,
                        SdfValueTypeNames->Int,
                        /* custom = */ false,
                        SdfVariabilityVarying,
@@ -94,15 +94,15 @@ usdFabricSchemaSimple::CreateIntAttrAttr(VtValue const &defaultValue, bool write
 }
 
 UsdRelationship
-usdFabricSchemaSimple::GetTargetRel() const
+UsdFabricSimplePrim::GetTargetRel() const
 {
-    return GetPrim().GetRelationship(usdFabricSchemaTokens->target);
+    return GetPrim().GetRelationship(UsdTokens->target);
 }
 
 UsdRelationship
-usdFabricSchemaSimple::CreateTargetRel() const
+UsdFabricSimplePrim::CreateTargetRel() const
 {
-    return GetPrim().CreateRelationship(usdFabricSchemaTokens->target,
+    return GetPrim().CreateRelationship(UsdTokens->target,
                        /* custom = */ false);
 }
 
@@ -120,10 +120,10 @@ _ConcatenateAttributeNames(const TfTokenVector& left,const TfTokenVector& right)
 
 /*static*/
 const TfTokenVector&
-usdFabricSchemaSimple::GetSchemaAttributeNames(bool includeInherited)
+UsdFabricSimplePrim::GetSchemaAttributeNames(bool includeInherited)
 {
     static TfTokenVector localNames = {
-        usdFabricSchemaTokens->intAttr,
+        UsdTokens->intAttr,
     };
     static TfTokenVector allNames =
         _ConcatenateAttributeNames(
