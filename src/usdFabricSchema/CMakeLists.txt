@@ -1,6 +1,7 @@
-set(FE_PACKAGE usdFabricSchema)
+set(PXR_PACKAGE usdFabricSchema)
 
-pxr_plugin(${FE_PACKAGE}
+pxr_plugin(${PXR_PACKAGE}
+
     LIBRARIES
         tf
         sdf
