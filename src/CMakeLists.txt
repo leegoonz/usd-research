@@ -52,4 +52,4 @@ link_directories(${USD_DEPS_PIXAR}/lib)
 
 set(FE_PREFIX examples)
 
-add_subdirectory(usdFabricSimpleSchema)
+add_subdirectory(usdFabricSchema)
