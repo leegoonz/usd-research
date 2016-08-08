@@ -6,6 +6,7 @@ pxr_plugin(${PXR_PACKAGE}
         tf
         sdf
         usd
+        usdGeom
         vt
 
     INCLUDE_DIRS
@@ -16,8 +17,10 @@ pxr_plugin(${PXR_PACKAGE}
         ${USD_DEPS_VFX}/include
 
     PUBLIC_CLASSES
-        fabricSimplePrim
         tokens
+        fabricSimplePrim
+        fabricXform
+        fabricMesh
 
     RESOURCE_FILES
         generatedSchema.usda
@@ -30,5 +33,7 @@ pxr_plugin(${PXR_PACKAGE}
         module.cpp
         wrapTokens.cpp
         wrapFabricSimplePrim.cpp
+        wrapFabricXform.cpp
+        wrapFabricMesh.cpp
 )
    

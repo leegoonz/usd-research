@@ -4,7 +4,8 @@
         usdGenSchema.
     """
     subLayers = [
-        @/opt/USD/pxr/usd/lib/usd/schema.usda@
+        @/opt/USD/pxr/usd/lib/usd/schema.usda@,
+        @/opt/USD/pxr/usd/lib/usdGeom/schema.usda@
     ]
 ) 
 
@@ -20,11 +21,8 @@ over "GLOBAL" (
 class "FabricSimplePrim" (
     doc = """An example of an untyped schema prim. Note that it does not 
     specify a typeName"""
-    # IsA schemas should derive from </Typed>, which is defined in the sublayer
-    # usd/lib/usd/schema.usda.
     inherits = </Typed>
-    )  
-{
+) {
     int intAttr = 0 (
         doc = "An integer attribute with fallback value of 0."
     )
@@ -32,4 +30,16 @@ class "FabricSimplePrim" (
         doc = """A relationship called target that could point to another prim
         or a property"""
     )
+}
+
+class FabricXform "FabricXform" (
+    doc = """An example of a fabric based transform"""
+    inherits = </Xform>
+) {
+}
+
+class FabricMesh "FabricMesh" (
+    doc = """An example of a fabric based mesh"""
+    inherits = </Mesh>
+) {
 }
