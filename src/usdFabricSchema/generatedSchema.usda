@@ -3,83 +3,6 @@
     "WARNING: THIS FILE IS GENERATED.  DO NOT EDIT."
 )
 
-class "FabricSimplePrim" (
-    doc = """An example of an untyped schema prim. Note that it does not 
-    specify a typeName"""
-)
-{
-    int intAttr = 0 (
-        doc = "An integer attribute with fallback value of 0."
-    )
-    rel target = None (
-        doc = """A relationship called target that could point to another prim
-        or a property"""
-    )
-}
-
-class FabricXform "FabricXform" (
-    doc = "An example of a fabric based transform"
-)
-{
-    uniform token purpose = "default" (
-        allowedTokens = ["default", "render", "proxy", "guide"]
-        doc = '''Purpose is a concept we have found useful in our pipeline for 
-        classifying geometry into categories that can each be independently
-        included or excluded from traversals of prims on a stage, such as
-        rendering or bounding-box computation traversals.  The fallback
-        purpose, default indicates that a prim has "no special purpose"
-        and should generally be included in all traversals.  Subtrees rooted
-        at a prim with purpose render should generally only be included
-        when performing a "final quality" render.  Subtrees rooted at a prim
-        with purpose proxy should generally only be included when 
-        performing a lightweight proxy render (such as openGL).  Finally,
-        subtrees rooted at a prim with purpose guide should generally
-        only be included when an interactive application has been explicitly
-        asked to "show guides". 
-        
-        In the previous paragraph, when we say "subtrees rooted at a prim",
-        we mean the most ancestral or tallest subtree that has an authored,
-        non-default opinion.  If the purpose of </RootPrim> is set to 
-        "render", then the effective purpose of </RootPrim/ChildPrim> will
-        be "render" even if that prim has a different authored value for
-        purpose.  <b>See ComputePurpose() for details of how purpose 
-        inherits down namespace</b>.
-        
-        As demonstrated in UsdGeomBBoxCache, a traverser should be ready to 
-        accept combinations of included purposes as an input.
-        
-        Purpose render can be useful in creating "light blocker"
-        geometry for raytracing interior scenes.  Purposes render and
-        proxy can be used together to partition a complicated model
-        into a lightweight proxy representation for interactive use, and a
-        fully realized, potentially quite heavy, representation for rendering.
-        One can also use UsdVariantSets to create proxy representations, but
-        this can potentially lead to an explosion in variants for models that
-        already have several axes of variation.  Purpose provides us with
-        another tool for interactive complexity management.'''
-    )
-    token visibility = "inherited" (
-        allowedTokens = ["inherited", "invisible"]
-        doc = '''Visibility is meant to be the simplest form of "pruning" 
-        visibility that is supported by most DCC apps.  Visibility is 
-        animatable, allowing a sub-tree of geometry to be present for some 
-        segment of a shot, and absent from others; unlike the action of 
-        deactivating geometry prims, invisible geometry is still 
-        available for inspection, for positioning, for defining volumes, etc.'''
-    )
-    uniform token[] xformOpOrder (
-        doc = """Encodes the sequence of transformation operations in the
-        order in which they should be pushed onto a transform stack while
-        visiting a UsdStage's prims in a graph traversal that will effect
-        the desired positioning for this prim and its descendant prims.
-        
-        You should rarely, if ever, need to manipulate this attribute directly.
-        It is managed by the AddXformOp(), SetResetXformStack(), and
-        SetXformOpOrder(), and consulted by GetOrderedXformOps() and
-        GetLocalTransformation()."""
-    )
-}
-
 class FabricMesh "FabricMesh" (
     doc = "An example of a fabric based mesh"
 )
@@ -181,6 +104,7 @@ class FabricMesh "FabricMesh" (
         interpolated. Valid values are "none", 
         "edgeAndCorner" (the default), or "edgeOnly".'''
     )
+    string klCode = ""
     normal3f[] normals (
         doc = """Provide orientation for individual points, which, depending on
         subclass, may define a surface, curve, or free points.  Note that in

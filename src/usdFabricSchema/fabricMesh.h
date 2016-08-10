@@ -27,6 +27,7 @@
 #include "pxr/usd/usdGeom/mesh.h"
 #include "pxr/usd/usd/prim.h"
 #include "pxr/usd/usd/stage.h"
+#include "./tokens.h"
 
 #include "pxr/base/vt/value.h"
 
@@ -126,6 +127,25 @@ private:
 
     // override SchemaBase virtuals.
     virtual const TfType &_GetTfType() const;
+
+public:
+    // --------------------------------------------------------------------- //
+    // KLCODE 
+    // --------------------------------------------------------------------- //
+    /// 
+    ///
+    /// \n  C++ Type: std::string
+    /// \n  Usd Type: SdfValueTypeNames->String
+    /// \n  Variability: SdfVariabilityVarying
+    /// \n  Fallback Value: 
+    UsdAttribute GetKlCodeAttr() const;
+
+    /// See GetKlCodeAttr(), and also 
+    /// \ref Usd_Create_Or_Get_Property for when to use Get vs Create.
+    /// If specified, author \p defaultValue as the attribute's default,
+    /// sparsely (when it makes sense to do so) if \p writeSparsely is \c true -
+    /// the default for \p writeSparsely is \c false.
+    UsdAttribute CreateKlCodeAttr(VtValue const &defaultValue = VtValue(), bool writeSparsely=false) const;
 
 public:
     // ===================================================================== //

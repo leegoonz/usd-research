@@ -18,8 +18,6 @@ pxr_plugin(${PXR_PACKAGE}
 
     PUBLIC_CLASSES
         tokens
-        fabricSimplePrim
-        fabricXform
         fabricMesh
 
     RESOURCE_FILES
@@ -32,8 +30,6 @@ pxr_plugin(${PXR_PACKAGE}
     PYMODULE_CPPFILES
         module.cpp
         wrapTokens.cpp
-        wrapFabricSimplePrim.cpp
-        wrapFabricXform.cpp
         wrapFabricMesh.cpp
 )
    

@@ -45,6 +45,13 @@ using namespace boost::python;
 // fwd decl.
 WRAP_CUSTOM;
 
+        
+static UsdAttribute
+_CreateKlCodeAttr(UsdFabricMesh &self,
+                                      object defaultVal, bool writeSparsely) {
+    return self.CreateKlCodeAttr(
+        UsdPythonToSdfType(defaultVal, SdfValueTypeNames->String), writeSparsely);
+}
 
 void wrapUsdFabricMesh()
 {
@@ -76,6 +83,13 @@ void wrapUsdFabricMesh()
 
         .def(!self)
 
+        
+        .def("GetKlCodeAttr",
+             &This::GetKlCodeAttr)
+        .def("CreateKlCodeAttr",
+             &_CreateKlCodeAttr,
+             (arg("defaultValue")=object(),
+              arg("writeSparsely")=false))
 
     ;
 

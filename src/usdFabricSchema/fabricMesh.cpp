@@ -93,13 +93,46 @@ UsdFabricMesh::_GetTfType() const
     return _GetStaticTfType();
 }
 
+UsdAttribute
+UsdFabricMesh::GetKlCodeAttr() const
+{
+    return GetPrim().GetAttribute(UsdTokens->klCode);
+}
+
+UsdAttribute
+UsdFabricMesh::CreateKlCodeAttr(VtValue const &defaultValue, bool writeSparsely) const
+{
+    return UsdSchemaBase::_CreateAttr(UsdTokens->klCode,
+                       SdfValueTypeNames->String,
+                       /* custom = */ false,
+                       SdfVariabilityVarying,
+                       defaultValue,
+                       writeSparsely);
+}
+
+namespace {
+static inline TfTokenVector
+_ConcatenateAttributeNames(const TfTokenVector& left,const TfTokenVector& right)
+{
+    TfTokenVector result;
+    result.reserve(left.size() + right.size());
+    result.insert(result.end(), left.begin(), left.end());
+    result.insert(result.end(), right.begin(), right.end());
+    return result;
+}
+}
+
 /*static*/
 const TfTokenVector&
 UsdFabricMesh::GetSchemaAttributeNames(bool includeInherited)
 {
-    static TfTokenVector localNames;
+    static TfTokenVector localNames = {
+        UsdTokens->klCode,
+    };
     static TfTokenVector allNames =
-        UsdGeomMesh::GetSchemaAttributeNames(true);
+        _ConcatenateAttributeNames(
+            UsdGeomMesh::GetSchemaAttributeNames(true),
+            localNames);
 
     if (includeInherited)
         return allNames;

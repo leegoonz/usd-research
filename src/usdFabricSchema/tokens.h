@@ -37,8 +37,7 @@
 
 /// \hideinitializer
 #define USD_TOKENS \
-    (intAttr) \
-    (target)
+    (klCode)
 
 /// \anchor UsdTokens
 /// \brief <b>UsdTokens</b> provides static, efficient TfToken's for
@@ -59,8 +58,7 @@
 /// \endcode
 ///
 /// The tokens are:
-/// \li <b>intAttr</b> - UsdFabricSimplePrim
-/// \li <b>target</b> - UsdFabricSimplePrim
+/// \li <b>klCode</b> - UsdFabricMesh
 TF_DECLARE_PUBLIC_TOKENS(UsdTokens, USD_TOKENS);
 
 #endif
