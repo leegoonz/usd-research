@@ -4,8 +4,8 @@
         usdGenSchema.
     """
     subLayers = [
-        @/opt/USD/pxr/usd/lib/usd/schema.usda@,
-        @/opt/USD/pxr/usd/lib/usdGeom/schema.usda@
+        @/opt/pixar/USD/pxr/usd/lib/usd/schema.usda@,
+        @/opt/pixar/USD/pxr/usd/lib/usdGeom/schema.usda@
     ]
 ) 
 

@@ -1,13 +1,12 @@
 cmake_minimum_required(VERSION 2.8)
 
-set(USD_ROOT /opt/USD)
+set(USD /opt/pixar/usd)
 set(USD_DEPS /opt/usd-deps/root/usr)
-set(USD_DEPS_VFX /opt/pixar/usd-vfx2015)
-set(USD_DEPS_PIXAR /opt/pixar/usd-deps/root/usr)
+set(USD_SOURCE /opt/pixar/USD)
 
 set(BOOST_ROOT ${USD_DEPS})
 set(TBB_tbb_LIBRARY ${USD_DEPS}/lib/libtbb.so)
-set(TBB_INCLUDE_DIRS ${USD_DEPS_VFX}/include)
+set(TBB_INCLUDE_DIRS ${USD_DEPS}/include)
 set(OPENEXR_ROOT_DIR ${USD_DEPS})
 set(OPENEXR_INCLUDE_DIR ${USD_DEPS}/include)
 set(OPENEXR_LIBRARY_DIR ${USD_DEPS}/lib)
@@ -48,9 +47,9 @@ include(CXXDefaults)
 add_definitions(${_PXR_CXX_DEFINITIONS})
 set(CMAKE_CXX_FLAGS ${_PXR_CXX_FLAGS})
 
-link_directories(${USD_DEPS_PIXAR}/lib)
+link_directories(${USD}/lib)
 
 set(PXR_PREFIX fabric)
-set(PXR_INSTALL_SUBDIR ${USD_DEPS_PIXAR}/share/usd/fabric)
+set(PXR_INSTALL_SUBDIR ${USD}/share/usd/fabric)
 
 add_subdirectory(usdFabricSchema)
